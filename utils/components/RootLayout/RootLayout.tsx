@@ -1,8 +1,9 @@
 import Head from "next/head";
 import React from "react";
-import Header from "./Header";
 import { twMerge } from "tailwind-merge";
+import Header from "./Header";
 import Footer from "./Footer";
+import dynamic from "next/dynamic";
 
 type RootLayoutProps = {
   title: string;

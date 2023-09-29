@@ -1,8 +1,10 @@
 import React from "react";
 import { twMerge } from "tailwind-merge";
-import RootNav from "./RootNav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
+import dynamic from "next/dynamic";
+
+const RootNav = dynamic(() => import("./RootNav"), { ssr: false });
 
 type HeaderProps = {
   container?: boolean;
