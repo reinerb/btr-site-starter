@@ -29,17 +29,22 @@ function RootLayout({
         <title>{title}</title>
         <meta name="description" content={metaDescription} />
       </Head>
-      <Header container={headerContainer} />
-      {container ? (
-        <div>
-          <main className={twMerge("container mx-8", className)}>
-            {children}
-          </main>
-        </div>
-      ) : (
-        <main className={className}>{children}</main>
-      )}
-      <Footer container={footerContainer} />
+      <div className="grid min-h-screen grid-rows-[auto_1fr_auto]">
+        <Header
+          className="bg-neutral-100 transition-colors duration-300 dark:bg-neutral-900"
+          container={headerContainer}
+        />
+        {container ? (
+          <div>
+            <main className={twMerge("container mx-8 my-4", className)}>
+              {children}
+            </main>
+          </div>
+        ) : (
+          <main className={twMerge("mx-8 my-4", className)}>{children}</main>
+        )}
+        <Footer container={footerContainer} />
+      </div>
     </>
   );
 }

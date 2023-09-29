@@ -2,3 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply transition-colors duration-200;
+  }
+
+  a {
+    @apply text-primary-800 no-underline transition-colors duration-300 hover:text-primary-900 hover:underline dark:text-primary-200 dark:hover:text-primary-100;
+  }
+}
+
+@layer components {
+  header a {
+    @apply text-lg text-neutral-950 transition-colors duration-300 hover:text-neutral-800 hover:no-underline dark:text-neutral-50 dark:hover:text-neutral-200;
+  }
+}
