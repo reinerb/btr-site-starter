@@ -3,20 +3,23 @@ import React from "react";
 import { twMerge } from "tailwind-merge";
 import Header from "./Header";
 import Footer from "./Footer";
-import dynamic from "next/dynamic";
 
 type RootLayoutProps = {
   title: string;
-  children?: React.ReactNode;
   metaDescription?: string;
+  noHeader?: boolean;
+  noFooter?: boolean;
   container?: boolean;
   headerContainer?: boolean;
   footerContainer?: boolean;
   className?: string;
+  children?: React.ReactNode;
 };
 
 function RootLayout({
   title,
+  noHeader,
+  noFooter,
   children,
   metaDescription,
   container,
@@ -24,17 +27,27 @@ function RootLayout({
   footerContainer,
   className,
 }: RootLayoutProps) {
+  const gridRows = noHeader
+    ? noFooter
+      ? "grid-rows-1"
+      : "grid-rows-[1fr_auto]"
+    : noFooter
+    ? "grid-rows-[auto_1fr]"
+    : "grid-rows[auto_1fr_auto]";
+
   return (
     <>
       <Head>
         <title>{title}</title>
         <meta name="description" content={metaDescription} />
       </Head>
-      <div className="grid min-h-screen grid-rows-[auto_1fr_auto]">
-        <Header
-          className="bg-neutral-100 transition-colors duration-300 dark:bg-neutral-900"
-          container={headerContainer}
-        />
+      <div className={twMerge("grid min-h-screen", gridRows)}>
+        {!noHeader && (
+          <Header
+            className="bg-neutral-100 transition-colors duration-300 dark:bg-neutral-900"
+            container={headerContainer}
+          />
+        )}
         {container ? (
           <div>
             <main className={twMerge("container mx-8 my-4", className)}>
@@ -44,7 +57,7 @@ function RootLayout({
         ) : (
           <main className={twMerge("mx-8 my-4", className)}>{children}</main>
         )}
-        <Footer container={footerContainer} />
+        {!noFooter && <Footer container={footerContainer} />}
       </div>
     </>
   );
