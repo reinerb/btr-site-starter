@@ -27,21 +27,13 @@ function RootLayout({
   footerContainer,
   className,
 }: RootLayoutProps) {
-  const gridRows = noHeader
-    ? noFooter
-      ? "grid-rows-1"
-      : "grid-rows-[1fr_auto]"
-    : noFooter
-    ? "grid-rows-[auto_1fr]"
-    : "grid-rows[auto_1fr_auto]";
-
   return (
     <>
       <Head>
         <title>{title}</title>
         <meta name="description" content={metaDescription} />
       </Head>
-      <div className={twMerge("grid min-h-screen", gridRows)}>
+      <div className="flex min-h-screen flex-col">
         {!noHeader && (
           <Header
             className="bg-neutral-100 transition-colors duration-300 dark:bg-neutral-900"
@@ -49,13 +41,15 @@ function RootLayout({
           />
         )}
         {container ? (
-          <div>
+          <div className="flex-grow">
             <main className={twMerge("container mx-8 my-4", className)}>
               {children}
             </main>
           </div>
         ) : (
-          <main className={twMerge("mx-8 my-4", className)}>{children}</main>
+          <main className={twMerge("mx-8 my-4 flex-grow", className)}>
+            {children}
+          </main>
         )}
         {!noFooter && <Footer container={footerContainer} />}
       </div>
