@@ -9,7 +9,7 @@ type LinkButtonProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   invertedDarkModeHover?: boolean;
 };
 
-function Button({
+function LinkButton({
   outline,
   small,
   invertedDarkModeHover,
@@ -56,4 +56,4 @@ function Button({
   );
 }
 
-export default Button;
+export default LinkButton;
