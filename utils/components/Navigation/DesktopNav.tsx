@@ -4,9 +4,12 @@ import Link from "next/link";
 import { twMerge } from "tailwind-merge";
 import type { NavLink } from "@/utils/types/types";
 
-const ColorModeSwitcher = dynamic(() => import("../ColorModeSwitcher"), {
-  ssr: false,
-});
+const ColorModeSwitcher = dynamic(
+  () => import("@/utils/components/ColorModeSwitcher"),
+  {
+    ssr: false,
+  },
+);
 
 type DesktopNavProps = {
   navLinks: NavLink[];

@@ -5,7 +5,9 @@ import { faCode } from "@fortawesome/free-solid-svg-icons";
 import dynamic from "next/dynamic";
 import { NavLink } from "@/utils/types/types";
 
-const RootNav = dynamic(() => import("./RootNav"), { ssr: false });
+const RootNav = dynamic(() => import("@/utils/components/Navigation/RootNav"), {
+  ssr: false,
+});
 
 type HeaderProps = {
   navLinks: NavLink[];

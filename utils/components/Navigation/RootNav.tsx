@@ -1,15 +1,10 @@
 "use client";
 
 import { useWindowSize } from "@uidotdev/usehooks";
-import dynamic from "next/dynamic";
 import React from "react";
-import ResponsiveNav from "../Navigation/ResponsiveNav";
+import ResponsiveNav from "./ResponsiveNav";
 import type { NavLink } from "@/utils/types/types";
-import DesktopNav from "../Navigation/DesktopNav";
-
-const ColorModeSwitcher = dynamic(() => import("../ColorModeSwitcher"), {
-  ssr: false,
-});
+import DesktopNav from "./DesktopNav";
 
 type RootNavProps = {
   navLinks: NavLink[];
