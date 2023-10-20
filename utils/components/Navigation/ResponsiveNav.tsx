@@ -14,11 +14,11 @@ const ColorModeSwitcher = dynamic(
 );
 
 type ResponsiveNavProps = {
-  links: NavLink[];
+  navLinks: NavLink[];
   className?: string;
 };
 
-function ResponsiveNav({ links, className }: ResponsiveNavProps) {
+function ResponsiveNav({ navLinks, className }: ResponsiveNavProps) {
   const [active, setActive] = useState(false);
 
   return (
@@ -47,7 +47,7 @@ function ResponsiveNav({ links, className }: ResponsiveNavProps) {
         </div>
         <nav>
           <ul className="flex flex-grow flex-col items-center gap-4">
-            {links.map(({ name, href }, index) => (
+            {navLinks.map(({ name, href }, index) => (
               <li key={index}>
                 <Link href={href}>{name}</Link>
               </li>

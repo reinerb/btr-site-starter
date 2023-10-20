@@ -3,6 +3,22 @@ import React from "react";
 import { twMerge } from "tailwind-merge";
 import Header from "./Header";
 import Footer from "./Footer";
+import type { NavLink } from "@/utils/types/types";
+
+const navLinks: NavLink[] = [
+  {
+    name: "Home",
+    href: "/",
+  },
+  {
+    name: "About",
+    href: "/about",
+  },
+  {
+    name: "Contact",
+    href: "/contact",
+  },
+];
 
 type RootLayoutProps = {
   title: string;
@@ -36,8 +52,9 @@ function RootLayout({
       <div className="flex min-h-screen flex-col">
         {!noHeader && (
           <Header
-            className="bg-neutral-100 transition-colors duration-300 dark:bg-neutral-900"
+            navLinks={navLinks}
             container={headerContainer}
+            className="bg-neutral-100 transition-colors duration-300 dark:bg-neutral-900"
           />
         )}
         {container ? (

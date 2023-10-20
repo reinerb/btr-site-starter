@@ -3,15 +3,17 @@ import { twMerge } from "tailwind-merge";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
 import dynamic from "next/dynamic";
+import { NavLink } from "@/utils/types/types";
 
 const RootNav = dynamic(() => import("./RootNav"), { ssr: false });
 
 type HeaderProps = {
+  navLinks: NavLink[];
   container?: boolean;
   className?: string;
 };
 
-function Header({ container, className }: HeaderProps) {
+function Header({ navLinks, container, className }: HeaderProps) {
   return (
     <header
       className={twMerge(
@@ -23,7 +25,7 @@ function Header({ container, className }: HeaderProps) {
       <h1 className="block text-4xl" aria-label="logo">
         <FontAwesomeIcon icon={faCode} /> Site Logo
       </h1>
-      <RootNav />
+      <RootNav navLinks={navLinks} />
     </header>
   );
 }
