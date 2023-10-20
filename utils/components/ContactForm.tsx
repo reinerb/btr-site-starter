@@ -110,10 +110,7 @@ function ContactForm({ className }: ContactFormProps) {
               type="text"
               id="name"
               placeholder="Name"
-              className={twMerge(
-                "w-full px-4 py-2 outline-none focus-within:outline-1 focus-within:outline-neutral-500",
-                errors.name && "outline-1 outline-red-500",
-              )}
+              className={errors.name && "outline-1 outline-red-500"}
               {...register("name")}
             />
           </div>
@@ -125,10 +122,7 @@ function ContactForm({ className }: ContactFormProps) {
               type="text"
               id="email"
               placeholder="Email Address"
-              className={twMerge(
-                "w-full px-4 py-2 outline-none focus-within:outline-1 focus-within:outline-neutral-500",
-                errors.email && "outline-1 outline-red-500",
-              )}
+              className={errors.email && "outline-1 outline-red-500"}
               {...register("email")}
             />
           </div>
@@ -140,7 +134,7 @@ function ContactForm({ className }: ContactFormProps) {
               id="message"
               placeholder="Message"
               className={twMerge(
-                "h-36 w-full px-4 py-2 outline-none focus-within:outline-1 focus-within:outline-neutral-500",
+                "h-36",
                 errors.message && "outline-1 outline-red-500",
               )}
               {...register("message")}
