@@ -1,13 +1,13 @@
-import Link from "next/link";
+import Link, { LinkProps } from "next/link";
 import React from "react";
 import { twMerge } from "tailwind-merge";
 
-type LinkButtonProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-  href: string;
-  outline?: boolean;
-  small?: boolean;
-  invertedDarkModeHover?: boolean;
-};
+type LinkButtonProps = React.AnchorHTMLAttributes<HTMLAnchorElement> &
+  LinkProps & {
+    outline?: boolean;
+    small?: boolean;
+    invertedDarkModeHover?: boolean;
+  };
 
 function LinkButton({
   outline,
